@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="250dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:maxLines="1"
+        android:text="@string/generated_pass_place_holder"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- pass length slider -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:stepSize="1"
+        android:value="8"
+        android:valueFrom="1"
+        android:valueTo="32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_upperCase"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/uppercase"
+        app:layout_constraintEnd_toEndOf="@+id/slider"
+        app:layout_constraintStart_toStartOf="@+id/slider"
+        app:layout_constraintTop_toBottomOf="@+id/slider" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_lowerCase"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/lowercase"
+        app:layout_constraintEnd_toEndOf="@+id/switch_upperCase"
+        app:layout_constraintStart_toStartOf="@+id/switch_upperCase"
+        app:layout_constraintTop_toBottomOf="@+id/switch_upperCase" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_numbers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/numbers"
+        app:layout_constraintEnd_toEndOf="@+id/switch_lowerCase"
+        app:layout_constraintStart_toStartOf="@+id/switch_lowerCase"
+        app:layout_constraintTop_toBottomOf="@+id/switch_lowerCase" />
+
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_symbols"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/symbols"
+        app:layout_constraintEnd_toEndOf="@+id/switch_numbers"
+        app:layout_constraintStart_toStartOf="@+id/switch_numbers"
+        app:layout_constraintTop_toBottomOf="@+id/switch_numbers" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_pin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/pin"
+        app:layout_constraintEnd_toEndOf="@+id/switch_symbols"
+        app:layout_constraintStart_toStartOf="@+id/switch_symbols"
+        app:layout_constraintTop_toBottomOf="@+id/switch_symbols" />
+
+    <ImageButton
+        android:id="@+id/imageButton_copy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:srcCompat="@drawable/baseline_content_copy_24" />
+
+    <ImageButton
+        android:id="@+id/imageButton_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton_copy"
+        app:layout_constraintStart_toEndOf="@+id/imageButton_copy"
+        app:layout_constraintTop_toTopOf="@+id/imageButton_copy"
+        app:srcCompat="@drawable/sharp_change_circle_24" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/password_length"
+        app:layout_constraintBottom_toTopOf="@+id/slider"
+        app:layout_constraintStart_toStartOf="@+id/slider" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="8"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

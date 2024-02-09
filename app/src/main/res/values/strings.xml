@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PasswordGenerator</string>
+    <string name="generated_pass_place_holder">GENERATED PASS SHOWN HERE</string>
+    <string name="dummy_place_holder">DUMMY PLACE HOLDER</string>
+    <string name="lowercase">LowerCase</string>
+    <string name="uppercase">Uppercase</string>
+    <string name="numbers">Numbers</string>
+    <string name="symbols">Symbols</string>
+    <string name="password_length">Password length:</string>
+    <string name="pin">PIN</string>
+</resources>
