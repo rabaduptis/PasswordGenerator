@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class BaseModule {
 
-
     @Singleton
     @Provides
     fun provideCopyBoardUtil(@ApplicationContext context: Context) = ClipBoardUtil(context)

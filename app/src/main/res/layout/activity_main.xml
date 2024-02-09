@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_passwordHolder"
         android:layout_width="250dp"
         android:layout_height="32dp"
         android:layout_marginStart="32dp"
@@ -35,7 +35,7 @@
         android:valueTo="32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_passwordHolder" />
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_upperCase"
@@ -94,9 +94,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:background="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_passwordHolder"
+        app:layout_constraintStart_toEndOf="@+id/textView_passwordHolder"
+        app:layout_constraintTop_toTopOf="@+id/textView_passwordHolder"
         app:srcCompat="@drawable/baseline_content_copy_24" />
 
     <ImageButton
@@ -105,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@null"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton_copy"
         app:layout_constraintStart_toEndOf="@+id/imageButton_copy"
         app:layout_constraintTop_toTopOf="@+id/imageButton_copy"
