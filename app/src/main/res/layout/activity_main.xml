@@ -23,7 +23,7 @@
 
     <!-- pass length slider -->
     <com.google.android.material.slider.Slider
-        android:id="@+id/slider"
+        android:id="@+id/slider_pswLength"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="@string/uppercase"
-        app:layout_constraintEnd_toEndOf="@+id/slider"
-        app:layout_constraintStart_toStartOf="@+id/slider"
-        app:layout_constraintTop_toBottomOf="@+id/slider" />
+        app:layout_constraintEnd_toEndOf="@+id/slider_pswLength"
+        app:layout_constraintStart_toStartOf="@+id/slider_pswLength"
+        app:layout_constraintTop_toBottomOf="@+id/slider_pswLength" />
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_lowerCase"
@@ -119,11 +119,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/password_length"
-        app:layout_constraintBottom_toTopOf="@+id/slider"
-        app:layout_constraintStart_toStartOf="@+id/slider" />
+        app:layout_constraintBottom_toTopOf="@+id/slider_pswLength"
+        app:layout_constraintStart_toStartOf="@+id/slider_pswLength" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView_pswLength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

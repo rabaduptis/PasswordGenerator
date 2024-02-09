@@ -8,6 +8,7 @@ import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.snackbar.Snackbar
 import com.root14.passwordgenerator.databinding.ActivityMainBinding
 import com.root14.passwordgenerator.util.ViewUtil
+import com.root14.passwordgenerator.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,46 +35,53 @@ class MainActivity : AppCompatActivity() {
         ViewUtil.setInset(findViewById(R.id.main))
         switchs = getSwitchesList()
 
+        binding.sliderPswLength.addOnChangeListener { slider, value, b ->
+            binding.textViewPswLength.text = value.toInt().toString()
+        }
 
+
+        //initial generated password
         val passwordGenerator =
             PasswordGeneratorBuilder() // Customize character sets and length as needed
                 .setMaxLength(16).build()
 
         val password = passwordGenerator.generatePassword()
 
-        //initial generated password
         binding.textViewPasswordHolder.text = password
         binding.switchPin.isChecked = true
 
         binding.imageButtonCopy.setOnClickListener {
-            mainViewModel.copy2ClipBoard("RND-PSW-HOLDER1").observe(this) {
-                if (it) {
-                    Snackbar.make(binding.root, "yep, you clicked1!", Snackbar.LENGTH_SHORT).show()
+            mainViewModel.copy2ClipBoard(binding.textViewPasswordHolder.text.toString())
+                .observe(this) {
+                    if (it) {
+                        Snackbar.make(
+                            binding.root,
+                            "Copied value to the clipboard \n${binding.textViewPasswordHolder.text}",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-            }
         }
 
         binding.imageButtonRefresh.setOnClickListener {
-            //TODO generate password here
-            val _arr = arrayListOf<Boolean>()
-
+            val switchesValueArr = arrayListOf<Boolean>()
             switchs.forEach {
-                _arr.add(it.isChecked)
+                switchesValueArr.add(it.isChecked)
             }
 
-
             //The number generation property of the password generator object was used to generate pins.
-            val pinValue = if (!_arr.contains(true)) {
+            val pinValue = if (!switchesValueArr.contains(true)) {
                 true
             } else {
-                _arr[2]
+                switchesValueArr[2]
             }
 
             val builder = PasswordGeneratorBuilder().apply {
-                enableUppercase(_arr[0])
-                enableLowerCase(_arr[1])
+                enableUppercase(switchesValueArr[0])
+                enableLowerCase(switchesValueArr[1])
                 enableNumbers(pinValue)
-                enableSymbols(_arr[3])
+                enableSymbols(switchesValueArr[3])
+                setMaxLength(binding.sliderPswLength.value.toInt())
             }
 
             binding.textViewPasswordHolder.text = builder.build().generatePassword()

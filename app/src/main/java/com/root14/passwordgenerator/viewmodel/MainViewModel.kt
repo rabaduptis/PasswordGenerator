@@ -1,8 +1,9 @@
-package com.root14.passwordgenerator
+package com.root14.passwordgenerator.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.root14.passwordgenerator.PasswordGeneratorBuilder
 import com.root14.passwordgenerator.util.ClipBoardUtil
 import com.root14.passwordgenerator.view.state.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
