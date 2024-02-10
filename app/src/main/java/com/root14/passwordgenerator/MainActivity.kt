@@ -1,9 +1,12 @@
 package com.root14.passwordgenerator
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.snackbar.Snackbar
 import com.root14.passwordgenerator.databinding.ActivityMainBinding
@@ -21,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     val mainViewModel: MainViewModel by viewModels<MainViewModel>()
 
     private var switchCounter = 0
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,6 +34,17 @@ class MainActivity : AppCompatActivity() {
         //set view
         enableEdgeToEdge()
         ViewUtil.setInset(findViewById(R.id.main))
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+// clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+        window.statusBarColor = ContextCompat.getColor(this, R.color.light_green);
+
+
         switchs = getSwitchesList()
 
         binding.sliderPswLength.addOnChangeListener { slider, value, b ->
